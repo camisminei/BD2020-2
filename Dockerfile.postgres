@@ -1,3 +1,3 @@
 FROM postgres
-COPY resources/exercicio-iud.sql /docker-entrypoint-initdb.d/
+COPY resources/trab1.sql /docker-entrypoint-initdb.d/
 EXPOSE 5432
