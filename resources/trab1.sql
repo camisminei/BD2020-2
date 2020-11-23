@@ -2,11 +2,11 @@ CREATE SCHEMA trab_schema;
 set search_path=trab_schema;
 
 CREATE TABLE pessoa (
-    cpf 		integer PRIMARY KEY NOT NULL,
-    rg 			integer,
+    	cpf 		varchar(11) PRIMARY KEY NOT NULL,
+    	rg 		varchar(9),
 	nome 		varchar(255),
 	data_nasc 	date,
-	rua			varchar(255),
+	rua		varchar(255),
 	numero 		int
 );
 
