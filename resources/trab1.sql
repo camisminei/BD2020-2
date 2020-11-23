@@ -11,20 +11,20 @@ CREATE TABLE pessoa (
 );
 
 CREATE TABLE tel_pessoa (
-	cpf_pessoa integer PRIMARY KEY,
+	cpf_pessoa varchar(11) PRIMARY KEY,
 	CONSTRAINT fk_telpessoa FOREIGN KEY(cpf_pessoa) REFERENCES pessoa(cpf),
 	telefone	varchar(15)
 );
 
 CREATE TABLE paciente (
-	cpf_paciente 	integer PRIMARY KEY,
+	cpf_paciente 	varchar(11) PRIMARY KEY,
 	CONSTRAINT fk_cpfpaciente FOREIGN KEY(cpf_paciente) REFERENCES pessoa(cpf),
 	nomeResponsavel	varchar(255)
 	
 );
 
 CREATE TABLE cliente (
-	cpf_cliente 	integer PRIMARY KEY,
+	cpf_cliente 	varchar(11) PRIMARY KEY,
 	CONSTRAINT fk_cpfcliente FOREIGN KEY(cpf_cliente) REFERENCES pessoa(cpf)
 	
 );
@@ -42,7 +42,7 @@ CREATE TABLE servico(
 	codServico		integer PRIMARY KEY,
 	nomeServico 	varchar(255),
 	tipoServico		varchar(255),
-	cpf_paciente 	integer,
+	cpf_paciente 	varchar(11),
 	CONSTRAINT fk_cpfpac FOREIGN KEY(cpf_paciente) REFERENCES pessoa(cpf),
 	codFunc 		integer,
 	CONSTRAINT fk_codfunc FOREIGN KEY(codFunc) REFERENCES funcionario(codFunc)
@@ -62,7 +62,7 @@ CREATE TABLE venda(
 
 CREATE TABLE pagamento(
 	codPagamento		integer	PRIMARY KEY,
-	cpf_cliente 		integer,
+	cpf_cliente 		varchar(11),
 	CONSTRAINT fk_cpfcliente FOREIGN KEY(cpf_cliente) REFERENCES pessoa(cpf),
 	metodoPagamento		varchar(255),
 	valor				float
@@ -72,7 +72,7 @@ CREATE TABLE pagamento(
 CREATE TABLE procedimentos(
 	cod_servico			integer,
 	CONSTRAINT fk_codservico FOREIGN KEY(cod_servico) REFERENCES servico(codServico),
-	cpf_paciente 		integer,
+	cpf_paciente 		varchar(11),
 	CONSTRAINT fk_cpfpacient FOREIGN KEY(cpf_paciente) REFERENCES pessoa(cpf),
 	dataProcedimento	date		
 
